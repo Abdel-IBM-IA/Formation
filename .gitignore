@@ -1,6 +1,3 @@
-# Untracked files:
-en.openfoodfacts.org.products.tsv 
-
 # C++ objects and libs
 *.slo
 *.lo
@@ -56,3 +53,7 @@ compile_commands.json
 Dev Web/Example/*
 Cours Python/01 Jupiter Pandas/02_Filtrer_&_Trier/data/food/en.openfoodfacts.org.products.tar.xz
 Cours Python/01 Jupiter Pandas/02_Filtrer_&_Trier/data/food/en.openfoodfacts.org.products.tsv
+Cours Python/01 Jupiter Pandas/01_Importer_&_Explorer/data/food/en.openfoodfacts.org.products.tar.xz
+
+# Untracked files:
+en.openfoodfacts.org.products.tsv 
