@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        html,  body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body>div {
+            /* Centrer la figure dans la page */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            width: 650px;
+            height: 650px;
+        }
+
+        body>div>div {
+            display: inline-block;
+        }
+
+        /* Permet d'afficher deux blocs sur la même ligne */
+
+        div div div div {
+            /* Cible chacun des trois blocs de tous les groupes */
+            border: 3px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .groupediv {
+            /* Cible les Contenants de chaque ensemble de 3 blocs */
+            width: 320px;
+            height: 320px;
+        }
+
+        .bloc1 {
+            top: 10px;
+            left: 10px;
+            background-color: brown;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bloc2 {
+            top: -160px;
+            left: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bloc3 {
+            top: -330px;
+            left: 90px;
+            background-color: darkgreen;
+            position: relative;
+        }
+
+        /* 3 ensembles de 3 blocs sur les 4 subissent une rotation */
+
+        #div1 {
+            transform: rotate(0.5turn);
+        }
+
+        #div2 {
+            transform: rotate(0.25turn);
+        }
+
+        #div3 {
+            transform: rotate(0.75turn);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SUPERPOSITION ET SYMETRIE</h1>
+
+    <div>
+        <div>
+            <div id="div1" class="groupediv">
+                <div class="bloc1"></div>
+                <div class="bloc2"></div>
+                <div class="bloc3"></div>
+            </div>
+            <div id="div2" class="groupediv">
+                <div class="bloc1"></div>
+                <div class="bloc2"></div>
+                <div class="bloc3"></div>
+            </div>
+        </div>
+        <div>
+            <div id="div3" class="groupediv">
+                <div class="bloc1"></div>
+                <div class="bloc2"></div>
+                <div class="bloc3"></div>
+            </div>
+            <div id="div4" class="groupediv">
+                <div class="bloc1"></div>
+                <div class="bloc2"></div>
+                <div class="bloc3"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

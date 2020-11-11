@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8" />
+        <script type="text/javascript">
+            function printTable() {
+                var result="";
+                for (var numTable=1;numTable<=10;numTable++)
+                {
+                    result += "<div><table>";
+                    for (var compteur = 1; compteur <= 10; compteur++) {
+                        result += "<tr><td>" + compteur + "</td><td> * </td><td>" + numTable + "</td><td> = </td><td>" + compteur * numTable + "</td></tr>";
+                    }
+                    result += "</table></div><br>";
+                }
+                document.getElementById("result").innerHTML = result;
+            }
+        </script>
+        <style>
+            div table {
+                display: flex;
+                flex-direction: row;
+            }
+        </style>
+    </head>
+    <body onload="printTable()" >
+        <h1>Tables de multiplication</h1>
+        <div id="result"></div>
+    </body>
+
+</html>

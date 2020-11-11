@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Exercice HTML exoHTMLbefore9</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+        <h1>MISSION 2</h1>
+        <h2>Site de rencontre</h2>
+        <div>
+            <form action="about:blank" name="profilform" id="profilform">
+                <fieldset>
+                    <legend>Profil</legend>
+                    <table>
+                        <tr>
+                            <td><label for="inputnom">Nom : </label></td>
+                            <td>
+                                <input 
+                                    type="text" id="inputnom" name="nom" placeholder="Nom" 
+                                    pattern="[A-Za-z]{2,45}" 
+                                    title="2 lettres mini 45 maxi pas de valeur numérique ou de caractères spéciaux" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="inputprenom">Prénom : </label></td>
+                            <td>
+                                <input type="text" id="inputprenom" name="prenom" placeholder="Prénom" 
+                                pattern="[A-Za-z]{2,45}" 
+                                title="2 lettres mini 45 maxi pas de valeur numérique ou de caractères spéciaux" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="inputemail">Email : </label></td>
+                            <td>
+                                <input type="email" id="inputemail" name="inputemail" 
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]\.(com|net|fr|org)$" 
+                                title="Format e-mail valide, seules les extensions en .com, .net, .fr et .org sont acceptées" required>
+                                <!-- <input type="text" id="inputemail" name="inputemail" > -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Sexe : </label></td>
+                            <td>
+                                <input type="radio" id="hommegender" name="gender" value="Homme">
+                                <label for="hommegender">Homme</label>
+    
+                                <input type="radio" id="femmegender" name="gender" value="Femme" checked>
+                                <label for="femmegender">Femme</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="avatar">Photo de profil (png ou jpeg)</label>
+                            </td>
+                            <td>
+                                <input type="file" id="avatar" name="avatar" accept=".png, .jpeg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="monpays">Pays: </label>
+                            </td>
+                            <td>
+                                <select id="monpays">
+                                    <option value="ALLEMAGNE" selected>ALLEMAGNE</option> 
+                                    <option value="ANGLETERRE">ANGLETERRE</option>
+                                    <option value="ESPAGNE">ESPAGNE</option>
+                                    <option value="FRANCE">FRANCE</option> 
+                                    <option value="ITALIE">ITALIE</option>
+                                    <option value="SUISSE">SUISSE</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="choixlangue">Langues ([CTRL] pour choix multiple) : </label>
+                            </td>
+                            <td>
+                                <select multiple size="5" id="choixlangue">
+                                    <option value="Allemand">Allemand</option>
+                                    <option value="Anglais">Anglais</option> 
+                                    <option value="Espagnol">Espagnol</option>
+                                    <option value="Français">Français</option>
+                                    <option value="Italien">Italien</option> 
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <label>Domaine d'activités : </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="plombier" name="activite" value="plombier">
+                                <label for="plombier">Plombier</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="electricien" name="activite" value="electricien">
+                                <label for="electricien">Eléctricien</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="macon" name="activite" value="macon">
+                                <label for="macon">Maçon</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="couvreur" name="activite" value="couvreur">
+                                <label for="couvreur">Couvreur</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" id="careleur" name="activite" value="careleur">
+                                <label for="careleur">Careleur</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="menuisier" name="activite" value="menuisier">
+                                <label for="menuisier">Menuisier</label>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br>
+                <input type="submit" value="Valider">
+                <input type="reset" value="Recommencer">
+            </form>
+        </div>
+    <footer>
+    
+    </footer> 
+</body>
+</html>

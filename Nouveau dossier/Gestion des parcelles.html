@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Html</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        #box {
+            border: 1px dotted navy;
+            padding-left: 3px;
+            background-color: rgb(196, 101, 130);
+            width: 600px;
+        }
+
+        #bouton {
+            margin-top: 10px;
+            padding-left: 3px;
+        }
+
+        #non {
+            width: 190px;
+            display: none;
+        }
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+
+        .first {
+            background-color: rgb(195, 215, 235);
+        }
+
+        td {
+            font-family: monospace;
+            padding: 5px;
+            border: 1px solid silver;
+        }
+
+        table {
+            margin-top: 12px;
+            border-collapse: collapse;
+        }
+    </style>
+    <script type="text/javascript">
+        function AjouterParcelle() {
+            var parcelle = document.getElementById("parcelle").value;
+            var cepage = document.getElementById("cepage").value;
+            if (parcelle==""){
+                alert("Merci de saisir une valeur pour la parcelle");
+                document.getElementById("parcelle").focus;
+            } else {
+                if (cepage==""){
+                    alert("Merci de selectionner une valeur pour le cépage");
+                    document.getElementById("cepage").focus;
+                } else {
+                    localStorage.setItem(parcelle, cepage);
+                    document.getElementById("parcelle").value = "";
+                    document.getElementById("cepage").value = "";
+                    afficher();
+                }
+            }
+        }
+        function AfficherParcelle() {
+            var parcelle = document.getElementById("parcelle").value;
+            if (parcelle==""){
+                alert("Merci de saisir une valeur pour la parcelle");
+                document.getElementById("parcelle").focus;
+            } else {
+                document.getElementById("cepage").value = localStorage.getItem(parcelle);
+                afficher();
+            }
+        }
+        function SupprimerParcelle() {
+            var parcelle = document.getElementById("parcelle").value;
+            localStorage.removeItem(parcelle);
+            document.getElementById("parcelle").value = "";
+            afficher();
+        }
+        function ReinitialiserListe() {
+            localStorage.clear();
+            afficher();
+        }
+        function afficher() {
+            var parcelle = "";
+            var lstParcelleCepage = "<tr class=\"first\"><td><b>Parcelle</b></td><td><b>Cepage</b></td></tr>\n";
+            var i = 0;
+            for (i = 0; i <= localStorage.length - 1; i++) {
+                parcelle = localStorage.key(i);
+                lstParcelleCepage += "<tr><td>" + parcelle + "</td>\n<td>" + localStorage.getItem(parcelle) + "</td></tr>\n";
+            }
+            if (lstParcelleCepage == "<tr class=\"first\"><td><b>Parcelle</b></td><td><b>Cepage</b></td></tr>\n") {
+                lstParcelleCepage += "<tr><td><i>Vide</i></td>\n<td><i>Vide</i></td></tr>\n";
+            }
+            document.getElementById('lstParcelleCepage').innerHTML = lstParcelleCepage;
+        }
+
+        function affichertri() {
+            var lecepage = document.getElementById("choixcepage").value 
+            if (lecepage==""){
+                alert("Vous devez sélectionner un cépage !");
+                document.getElementById("choixcepage").focus;
+            } else {
+                var parcelle = "";
+                var lstParcelle = "<tr class=\"first\"><td><b>Parcelle</b></td></tr>\n";
+                var i = 0;
+                for (i = 0; i <= localStorage.length - 1; i++) {
+                    parcelle = localStorage.key(i);
+                    if (lecepage == localStorage.getItem(parcelle)){
+                        lstParcelle += "<tr><td>" + parcelle + "</td></tr>\n";
+                    }
+                }
+                if (lstParcelle == "<trclass=\"first\"><td><b>Parcelle</b></td></tr>\n") {
+                    lstParcelle += "<tr><td><i>Vide</i></td>\n<td><i>Vide</i></td></tr>\n";
+                }
+                document.getElementById('lstParcelle').innerHTML = lstParcelle;
+            }
+        }
+    </script>
+</head>
+
+<body onload="afficher()">
+    <header>
+        <h2>Saisie des parcelles</h2>
+    </header>
+    <div id="non"></div>
+    <section>
+        <form>
+            <div id="box">
+                <p>
+                    <label for="parcelle">Parcelle : </label>
+                    <input id="parcelle" name="parcelle" size="30" placeholder="Parcelle">
+
+                    <label for="cepage">Cépage : </label>
+                    <input list="cepages" name="cepage" id="cepage" placeholder="Sélectionner un cépage" value="">
+                    <datalist id="cepages">
+                        <option value=""></option>
+                        <option value="Pinot noir">Pinot noir</option>
+                        <option value="Merlot">Merlot</option>
+                        <option value="Malbec">Malbec</option>
+                        <option value="Trousseau">Trousseau</option>
+                        <option value="Gamay">Gamay</option>
+                        <option value="Chardonnay">Chardonnay</option>
+                        <option value="Sauvignon">Sauvignon</option>
+                        <option value="Grenache">Grenache</option>
+                        <option value="Savagnin">Savagnin</option>
+                        <option value="Chenin">Chenin</option>
+                    </datalist>
+                </p>
+                <p>
+                    <input type="button" value="Ajouter" onclick="AjouterParcelle()">
+                    <input type="button" value="Modifier" onclick="AfficherParcelle()">
+                    <input type=button value="Supprimer" onclick="SupprimerParcelle()">
+                </p>
+            </div>
+            <div>
+                <div id="l"></div>
+
+            </div>
+        </form>
+        <table id=lstParcelleCepage></table>
+        <input type=button id="bouton" value="Nouvelle liste" onclick="ReinitialiserListe()">
+    </section>
+    <section>
+        <h3>Filtre des parcelles par cépage</h3>
+        <p>
+            <input type=button id="filter" value="Afficher les parcelles concernant le cépage" onclick="affichertri()">
+            <input list="cepages" name="choixcepage" id="choixcepage" placeholder="Faire un choix pour le tri" value="">
+        </p>
+        <table id=lstParcelle></table>
+    </section>
+    
+</body>
+
+</html>

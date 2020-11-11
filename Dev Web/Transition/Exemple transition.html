@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Html</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      .verticalaccordion > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 300px;
+      }
+
+      .verticalaccordion > ul > li {
+        display: block;
+        overflow: hidden; /* Gestion du dépassement de contenu de l'élément dans son bloc pour chaque occurence de la liste tout ce qui dépasse est caché */
+        margin: 0;
+        padding: 0;
+        list-style: none; 
+        height: 30px; /* Hauteur fixée de la partie visible pour chacune des occurence  */
+        width: 300px;
+        background-color: rgb(215, 230, 245);
+        border-radius: 7px;
+        transition: height 0.3s ease-in-out; /* On défini la transition entre deux états de la visibilité d'une occurence */
+        /* la transition se fait sur la hauteur qui évolue de height=30px toutes les 0.3s jusqu'à la taille maxi 150px */
+      }
+
+      .verticalaccordion > ul > li > h3 {
+        display: block;
+        margin: 0;
+        padding: 10px;
+        height: 19px;
+        border-top: #f0f0f0 1px solid;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 80%;
+        color: #000;
+        background: rgb(185, 205, 225);
+      }
+
+      .verticalaccordion > ul > li > div {
+        margin: 0;
+        overflow: auto; /* Chaque occurence est contenu dans une div qui occupe toute la place disponible */
+        /* Lorsqu'une transition est lancée la div dispose alors de l'espace de sa li parente directe    */
+        padding: 10px;
+        height: 150px;
+      }
+
+      .verticalaccordion > ul > li:hover {
+        height: 150px; /* ici la taille maxi 150px est définie */
+        /* C'est la pseudo classe :hover qui permet de définir la transition entre les deux états  */
+      }
+
+      .verticalaccordion:hover > ul > li:hover > h3 {
+        color: #fff;
+        background: rgb(125, 165, 205);
+        font-size: 80%;
+      }
+
+      .verticalaccordion > ul > li > h3:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="verticalaccordion">
+      <ul>
+        <li>
+          <h3>Item1</h3>
+          <div>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor. Cras elementum ultrices diam.
+          </div>
+        </li>
+        <li>
+          <h3>Item 2</h3>
+          <div>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed
+            nonrisus. Suspendisse lectus tortor, dignissim sit amet,
+            adipiscingnec, ultricies sed, dolor. Cras elementum ultrices diam.
+          </div>
+        </li>
+        <li>
+          <h3>Item 3</h3>
+          <div>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor. Cras elementum ultrices diam.
+          </div>
+        </li>
+        <li>
+          <h3>Item 4</h3>
+          <div>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor. Cras elementum ultrices diam.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

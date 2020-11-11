@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Exercice HTML exoHTMLbefore9</title>
+	<meta charset="UTF-8">
+    <style type="text/css">
+    
+        /* Appliqué au  les tableaux */
+        table {
+            border: 2px solid black;
+            /* width: 500px; */
+        }
+        table th { 
+            border: 2px solid rgba(0, 0, 0, 0); 
+        }
+        table td { 
+            border: 2px solid black; 
+            /* text-align: center; */
+        }
+
+        hr {
+            width: 80%;
+            /* text-align:left; */
+            margin-left:0;
+        }
+        
+        dt h3 { 
+            color:red;
+            margin-left: 40px;
+        }
+	</style>
+</head>
+
+<body>
+    <span>
+        <ol type="1">
+            <p>
+            <li><h2><a id="maliste">&Eacute;crire cette liste :</a></h2></li>
+                <ul>
+                    <li>Aimer</li>
+                    <li>Détester</li>
+                    <li>Haïr</li>
+                    <li>Adorer</li>
+                </ul>
+            </p>
+            <p>
+            <li><h2>Faire un changement de paragraphe</h2></li>
+            
+                <a href=#maliste>La liste</a><br>
+                <a href=#defliste>Definition</a><br>
+                <a href=#changeligne>Séparation linéaire</a><br>
+                <a href=#aliquam>Les inconvénients</a>
+            </p>
+
+            <p>
+            <li><h2><a id="defliste">&Eacute;crire maintenant une liste de définition :</a></h2></li>
+
+                <dl>
+                    <dt><h3>Langage HTML</h3></dt>
+                    <dd>Codification utilisée pour les documents WWW. Ce type de codes a été inventé par Tim
+                        Berners-Lee alors au CERN.</dd>
+                    <dt><h3>Langage Java</h3></dt>
+                    <dd>Programmation qui fait suer son concepteur tout en lui apportant plusieurs satisfactions…</dd>
+                </dl>
+            </p>
+            <p>
+            <li><h2><a id="changeligne"></a>Faire une démarcation linéaire</a></h2></li>
+                <hr>
+            </p>            
+        </ol>
+    </span>
+    <span>
+        <h1>Exo sur les tableaux</h1>
+        <table>
+            <caption>Conjugaisons</caption>
+            <thead>
+                <tr>
+                    <th colspan="2"></th>
+                    <th center colspan="2">Premier groupe</th>
+                    <th colspan="2">Second groupe</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>Personne</th>
+                    <th>Singulier</th>
+                    <th>Pluriel</th>
+                    <th>Singulier</th>
+                    <th>Pluriel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3">Présent</td>
+                    <td>1</td>
+                    <td>je mange</td>
+                    <td>nous mangeons</td>
+                    <td>je finis</td>
+                    <td>nous finissons</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>tu manges</td>
+                    <td>vous mangez</td>
+                    <td>tu finis</td>
+                    <td>vous finnissez</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>il mange</td>
+                    <td>ils mangent</td>
+                    <td>il finit</td>
+                    <td>il finissent</td>
+                </tr>
+            </tbody>
+        </table>
+    </span>
+    <span>
+        <h1>Recette tarte aux pommes</h1>
+        <p>
+            <h3>PRÉPARATION</h3>
+            <ol type="1">
+                <li>
+                    Déroulez, étalez et piquez la pâte dans un moule à tarte. Pelez, videz et coupez en fines tranches les pommes. Posez-les sur la pâte en rosace.
+                </li>
+                <li>
+                    Dans un saladier, battez les œufs avec le sucre, puis ajoutez la crème et la cannelle. Versez le mélange sur les pommes.
+                </li>
+            </ol>
+        </p>
+        <p>
+            <h3>Pour finir</h3>
+            Mettez au four à 210°C (thermostat 7) pour 40 minutes environ. Vers la fin de la cuisson, répartissez sur la tarte le sucre vanillé et remettez au four pour caramélisé.
+        </p>
+
+        <div><img src="images/Tarte.PNG"></div>
+    </span>
+    <span>
+        <h1>Une image intégrée</h1>
+        <div>
+            Un beau texte avec une <img src="images/dessin.PNG"> image.
+            <br>
+            L'image s'appelle "dessin.png", et se trouve dans le dossier "images"
+            Celui-ci est situé au même endroit que la page à écrire.
+        </div>
+    </span>
+    <span>
+        <h1>Présentation du code xhtml strict</h1>
+        <div>
+            <section>
+                <h2>Première partie</h2>
+                <p>
+                     On nous demande ici
+                     <ul>
+                          <li>D'écrire du code xhtml strict</li>
+                          <li>Aucune feuille de style n'est utilisée ce qui explique qu'elle n'apparait pas dans le head.</li>
+                     </ul> 
+                </p>
+                <p>
+                    <code>
+                        <pre>
+&lt!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+&lthtml xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+        &lthead>
+            &lttitle>Une page xhtml strict sans feuille de style&lt/title>
+            &ltmeta name="keywords" lang="fr" content="xhtml,exemple,fichier,introduction" />
+            &ltmeta name="description" content="Petite introduction sur le xhtml." />
+            &ltmeta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            &ltmeta http-equiv="Content-Language" content="fr" />
+            &ltmeta http-equiv="Content-Script-Type" content="text/javascript" />
+        &lt/head>
+        &ltbody>
+            &ltsection>
+                &lth1>Première partie&lt/h1>
+                &ltp>
+                    On nous demande ici
+                    &ltul>
+                            &ltli>D'écrire du code xhtml strict&lt/li>
+                            &ltli>Aucune feuille de style n'est utilisée ce qui explique qu'elle n'apparait pas dans le head.&lt/li>
+                    &lt/ul> 
+                &lt/p>
+            &lt/section>
+            &ltsection>
+                &lth1>Seconde partie&lt/h1>
+                    &ltp>
+                    &lth3>Le format de fichier XHTML Website&lt/h3>
+                            &ltpre>
+            Les fichiers enregistrés avec l'extension XHTML sont des fichiers de site web écrits dans un certain langage de programmation.
+            Le contenu du fichier est écrit en XHTML qui est une transposition en XML 1.0 du HTML 4. 
+            De nombreuses pages web sont désormais écrites en XHTML 1.0 ou XHTML 1.1, par opposition à la version HTML brute.
+                            &lt/pre>
+                    &lt/p>
+                    &ltp>
+                    &lth3>Détails techniques relatifs aux fichiers XHTML&lt/h3>
+                            &ltpre>
+            Les fichiers écrits à l'aide du langage de balisage XHTML utilisent des balises HTML standard. 
+            Toutefois, la syntaxe plus rigoureuse du XML est reprise dans le XHTML, par opposition au code HTML pur. 
+            En conséquence, les fichiers XHTML sont très bien structurés et peuvent facilement être analysés en utilisant le XML. 
+            Depuis janvier 2000, le langage de programmation XHTML est devenu une recommandation du W3C
+                            &lt/pre>
+                    &lt/p>
+                    &ltp>
+                            &lth3>Plus d'informations sur le format de fichier XHTML&lt/h3>
+                            &lttable>
+                                &lttr>
+                                    &ltth>Extension de fichier&lt/th>
+                                    &lttd>.xhtml&lt/td>
+                                &lt/tr>
+                                &lttr>
+                                    &ltth>Catégorie de fichier&lt/th>
+                                    &lttd> &lta href="https://www.online-convert.com/fr/type-fichier#website">Website&lt/a>&lt/td>
+                                &lt/tr>
+                                &lttr>
+                                    &ltth>Programmes associés&lt/th>
+                                    &lttd>
+                                        Adobe ColdFusion Builder 3 &ltbr />
+                                        Adobe Dreamweaver CC 2015 &ltbr />
+                                        Ainsi que Les différents navigateurs
+                                    &lt/td>
+                                &lt/tr>
+                                &lttr>
+                                    &ltth>
+                                        Liens utiles
+                                    &lt/th>
+                                    &lttd>
+                                        &lta href="https://en.wikipedia.org/wiki/XHTML">Plus d'informations sur le langage et les fichiers XHTML&lt/a>
+                                    &lt/td>
+                                &lt/tr>
+                            &lt/table>
+                    &lt/p>
+            &lt/section>
+        &lt/body>
+&lt/html>
+                        </pre>
+                    </code>
+                </p>
+           </section>
+           <section>
+                <h2>Seconde partie</h2>
+                     <p>
+                         <a href="./images/exemple page xhtml strict.xhtml">Rendu de la page .xhtml</a>
+
+                     </p>
+           </section>
+        </div>
+    </span>
+    <span>
+        <h1>Jouons avec des listes imbriquées</h1>
+        <div>
+            <ol>
+                <li>Ceci est le premier élément numéroté</li>
+                <li>Ceci est le deuxième élément numéroté
+                    <ul type="circle">
+                        <li>Ceci est le premier sous-élément du deuxième élément numéroté
+                            <ol>
+                                <li>Et ceci est un sous-élément numéroté d'un sous-élément</li>
+                                <li>Et ceci est un autre sous-élément numéroté d'un sous-élément</li>
+                                <li>Vous suivez toujours ?</li>
+                            </ol>
+                        </li>
+                        <li>Ceci est le deuxième sous-élément du deuxième élément numéroté</li>
+                        <li>Ceci est le troisième sous-élément du deuxième élément numéroté</li>
+                    </ul>
+                </li>
+                <li>Ceci est le troisième élément numéroté qui contient deux définitions
+                    <dt>facile</dt>
+                    <dd>qui n'est pas difficile</dd>
+                    <dt>difficile</dt>
+                    <dd>synonyme de compliqué</dd>
+                </li>
+            </ol>
+        </div>
+    </span>
+    <span>
+        <h2>Formulaire avec INPUT de type PASSWORD</h2>
+        <div>
+            <form action="" name="authform" id="authform">
+                <fieldset>
+                    <legend>Authentification</legend>
+                        Login : <input type="text" id="inputlogin" name="login" placeholder="saisir votre login">
+                        Mot de passe : <input type="text" id="inputmdp" name="mdp" placeholder="saisir votre mot de passe">
+                        <br><br>
+                    <input type="submit" value="Envoyer">
+                    <input type="reset" value="Effacer">
+                </fieldset>
+            </form>
+
+        </div>
+    </span>
+    <span>
+        <h2>Formulaire avec pattern et required</h2>
+        <div>
+            <form action="">
+                <fieldset>
+                    <legend>Authentification</legend>
+                        Login : <input type="text" id="inputlogin" name="login" placeholder="saisir votre login" maxlength="8" required>
+                        Mot de passe : <input type="text" id="inputmdp" name="mdp" placeholder="saisir votre mot de passe" maxlength="8" required>
+                        <br><br>
+                    <input type="submit" value="Envoyer">
+                    <input type="reset" value="Effacer">
+                </fieldset>
+            </form>
+
+        </div> 
+    </span>
+
+    <footer>
+    
+    </footer> 
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Exercice 6 cours HTML Tableaux structurés</title>
+        <meta charset="UTF-8" />
+        <style type="text/css">  
+            /* Appliqué tableau */
+            table{ border-collapse: collapse;}
+            table thead { font-weight: bold; } /* Caractères de l'entête de tableau en gras */
+            table, td {
+                border: 1px solid black;
+            }
+            tfoot{ color:blue;}
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <caption>Calcul de la moyenne</caption>
+            <thead>
+                <tr>
+                    <td>Matières</td>
+                    <td>Note par matière</td>
+                    <td>Coefficient</td>
+                    <td>Note*Coefficient</td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Moyenne</td>
+                    <td>16.12</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>Mathématiques</td>
+                    <td>17</td>
+                    <td>4</td>
+                    <td>68</td>
+                </tr>
+                <tr>
+                    <td>Physique</td>
+                    <td>15</td>
+                    <td>3</td>
+                    <td>45</td> 
+                </tr>
+                <tr>
+                    <td>Informatique</td>
+                    <td>16</td>
+                    <td>2</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Totals</td>
+                    <td>9</td>
+                    <td>145</td>
+                </tr>
+            </tbody>
+        </table>        
+    </body>
+</html>

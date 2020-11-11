@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Exercice 8 cours HTML Les liens relatifs</title>
+    <meta charset="UTF-8" />
+    <link href="style/common.css" rel="stylesheet" type="text/css" />
+    <link href="style/index.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+      .étroit {
+        padding: 10px;
+        border: 1px solid;
+        width: 500px;
+        margin: 0 auto;
+        font-size: 20px;
+        line-height: 1.5;
+        letter-spacing: 1px;
+      }
+
+      .normal {
+        word-break: normal;
+      }
+
+      .breakAll {
+        word-break: break-all;
+      }
+
+      .keep {
+        word-break: keep-all;
+      }
+
+      .breakWord {
+        word-break: break-word;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p class="normal étroit">
+      Voici une Supercalifragilisticexpialidocious califragilisticexpialidocious
+      phrase.
+      グレートブリテンおよび北アイルランド連合王国という言葉は本当に長い言葉
+    </p>
+    <p class="breakAll étroit">
+      Voici une Supercalifragilisticexpialidocious califragilisticexpialidocious
+      phrase.
+      グレートブリテンおよび北アイルランド連合王国という言葉は本当に長い言葉
+    </p>
+    <p class="breakWord étroit">
+      Voici une Supercalifragilisticexpialidocious califragilisticexpialidocious
+      phrase.
+      グレートブリテンおよび北アイルランド連合王国という言葉は本当に長い言葉
+    </p>
+    <p class="keep étroit">
+      Voici une Supercalifragilisticexpialidocious califragilisticexpialidocious
+      phrase.
+      グレートブリテンおよび北アイルランド連合王国という言葉は本当に長い言葉
+    </p>
+
+    <footer>Page d'acceuil</footer>
+  </body>
+</html>

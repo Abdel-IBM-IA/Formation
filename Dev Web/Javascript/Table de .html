@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+        function printTable() {
+            var nbSaisi = document.getElementById("myinput").value;
+            /// nbSaisi = parseInt(nbSaisi);
+            /// nbSaisi = parseFloat(nbSaisi);
+            if (isNaN(nbSaisi) || nbSaisi == null) {
+                alert("Merci de saisir une valeur numérique !");
+            } else {
+                if (nbSaisi != parseInt(nbSaisi)) {
+                    alert("Merci de saisir un entier !");
+
+                } else {
+                    var result = "<table>";
+                    for (var compteur = 1; compteur <= 10; compteur++) {
+                        result += "<tr><td>" + compteur + "</td><td> * </td><td>" + nbSaisi + "</td><td> = </td><td>" + compteur * nbSaisi + "</td></tr>";
+                    }
+                    result += "</table>";
+                    document.getElementById("result").innerHTML = result;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Table multiplication</h1>
+    <form name="myForm" method="post" action="#"></form>
+    <div>
+        <label for="myinput">Saisissez un nombre :</label>
+        <input type="number" id="myinput" name="myinput"><br>
+        <button onclick="printTable()">Valider</button>
+    </div>
+    <div id="result"></div>
+    </form>
+</body>
+
+</html>

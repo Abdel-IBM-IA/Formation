@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Exercice HTML exoHTMLbefore9</title>
+	<meta charset="UTF-8">
+    <style type="text/css">
+    
+        /* Appliqué au  les tableaux */
+        table {
+            border: 2px solid black;
+            /* width: 500px; */
+        }
+        table th { 
+            border: 2px solid black; 
+        }
+        table td { 
+            border: 2px solid black; 
+            /* text-align: center; */
+        }
+
+        hr {
+            width: 80%;
+            /* text-align:left; */
+            margin-left:0;
+        }
+        
+        dt h3 { 
+            color:red;
+            margin-left: 40px;
+        }
+	</style>
+</head>
+
+<body>
+    <span>
+        <h1>MISSION 1</h1>
+        <h2>Formulaire de commande</h2>
+        <div>
+            <form action="" name="commandeform" id="commandeform">
+                <fieldset>
+                    <legend>Client</legend>
+                        Nom : <input type="text" id="inputnom" name="nom" placeholder="NOM" pattern="[A-Z]*" oninvalid="this.setCustomValidity('SAISIE EN MAJUSCULE')" oninput="this.setCustomValidity('SAISIE EN MAJUSCULE')">
+                        Prénom : <input type="text" id="inputprenom" name="nom" placeholder="Prénom" pattern="/[A-Z ][a-z]*" oninvalid="this.setCustomValidity('Première lettre en majuscule uniquement')" oninput="this.setCustomValidity('Première lettre en majuscule uniquement')">
+                        <br><br>
+                        Adresse : <input type="text" id="inputadresse" name="adresse" >
+                        <br><br>
+                        Code Postal : <input type="text" id="inputcp" name="cp" pattern="[0-9]{5}" oninvalid="this.setCustomValidity('5 chiffres attendus XXXXX')" oninput="this.setCustomValidity('5 chiffres attendus XXXXX')" >
+                        <br><br>
+                        Pays : <input type="text" id="inputpays" name="pays" value="France" disabled>
+                </fieldset>
+                <fieldset>
+                    <legend>Commande</legend>
+                        Modèle : <input type="text" id="inputmodel" name="model" value="Road 66">
+                        <br><br>
+                        <label for="taille">Taille :</label>
+                        <br>
+                        <input name="rangetaille1" type="range" step="1" min="0" max="3" value="1">
+
+
+                        <br><br>
+                        Quantité : <input type="number" id="inputquantite" name="quantite" value="1" min="1" step="3" max="165">
+                        <br><br>
+                </fieldset>
+                <br>
+                <input type="submit" value="Commander">
+                <input type="reset" value="Recommencer">
+            </form>
+
+        </div>
+    </span>
+    <span>
+        <h1>MISSION 2</h1>
+        <h2>Site de rencontre</h2>
+        <div>
+            <form action="" name="profilform" id="profilform">
+                <fieldset>
+                    <legend>Profil</legend>
+                    <div>
+                        <p>
+                            Nom : <input type="text" id="inputnom" name="nom" placeholder="Nom" minlength="2" maxlength="45" oninvalid="this.setCustomValidity('2 lettres mini 45 maxi pas ')" oninput="this.setCustomValidity('SAISIE EN MAJUSCULE')">
+                            Prénom : <input type="text" id="inputprenom" name="nom" placeholder="Prénom" oninvalid="this.setCustomValidity('Première lettre en majuscule uniquement')" oninput="this.setCustomValidity('Première lettre en majuscule uniquement')">
+                            <br><br>
+                            email : <input type="email" id="inputadresse" name="adresse" pattern="[a-z0-9._%+-]{1,40}[@]{1}[a-z]{1,10}\.(com|net|fr|org)$" >
+                            <br> 
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Sexe :
+                            <input type="radio" id="hommegender" name="gender" value="Homme">
+                            <label for="hommegender">Homme</label>
+
+                            <input type="radio" id="femmegender" name="gender" value="Femme">
+                            <label for="femmegender">Femme</label>
+                        </p>
+                    </div>
+                    <div>
+                        <label for="avatar">Sélectionner une photo pour votre profil (.png ou .jpeg):</label>
+                        <input type="file" id="avatar" name="avatar" accept=".png, .jpeg">
+                    </div>                
+                    <div>
+                        <p>
+                            Pays: 
+                            <select id="monpays">
+                                <option value="ALLEMAGNE" selected>ALLEMAGNE</option> 
+                                <option value="ANGLETERRE">ANGLETERRE</option>
+                                <option value="ESPAGNE">ESPAGNE</option>
+                                <option value="FRANCE">FRANCE</option> 
+                                <option value="ITALIE">ITALIE</option>
+                                <option value="SUISSE">SUISSE</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Langues (touche [CTRL] pour choix multiple): 
+
+                            <select multiple size="5" id="monpays">
+                                <option value="Allemand">Allemand</option>
+                                <option value="Anglais">Anglais</option> 
+                                <option value="Espagnol">Espagnol</option>
+                                <option value="Français">Français</option>
+                                <option value="Italien">Italien</option> 
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Domaine d'activités :
+                            (, , Maçon, Carreleur, Menuisier, Couvreur).
+                            <br>
+                            <div>
+                                <input type="checkbox" id="plombier" name="plombier"
+                                       checked>
+                                <label for="plombier">Plombier</label>
+                            </div>
+                              
+                            <div>
+                                <input type="checkbox" id="electricien" name="electricien">
+                                <label for="electricien">Eléctricien</label>
+                              </div>
+                              <br>
+                            <div>
+                                  <input type="checkbox" id="plombier" name="plombier"
+                                         checked>
+                                  <label for="plombier">Plombier</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="electricien" name="electricien">
+                                <label for="electricien">Eléctricien</label>
+                            </div>
+                        </p>
+                    </div>
+                </fieldset>
+                <input type="submit" value="Valider">
+                <input type="reset" value="Recommencer">
+            </form>
+        </div>
+    </span>
+
+    <footer>
+    
+    </footer> 
+</body>
+</html>

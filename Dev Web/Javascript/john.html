@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>exercies_a_rendre</title>
+    <meta charset="utf-8">
+
+
+
+</head>
+
+
+<body>
+
+    <!-- exercice à faire: Soit un train à l’arrêt en gare X
+    il prend des passagers
+    ferme ses portes.
+    Démarre
+    roule en accélérant de 10km/h toutes les fois que le conducteur accélère 
+    Il atteint sa vitesse max de 150km/h, le conducteur continue d’accélèrer mais le train ne dépasse pas 150km/h.
+    Sur le trajet soudain une vache, il freine et la vitesse tombe à zéro km/h.
+    La vache s’en va et le train repart, jusqu’à atteindre 150 km/h.
+    Il arrive à destination, il ralenti 150 – 130 – 100 – 80 – 60 -30 -5 -0 km/h
+    Les passagers descendent.
+    
+    Vous devez créer une classe qui permette toutes ces actions et informe par un console.log de l’état du train (vitesse et en arret ou non, portes) -->
+
+
+
+
+    <button onclick='scenario_vache_on_rails()'>Lancer le scénario</button>
+
+    <!-- <button onclick=ferme_ses_portes()>Les portes se ferment</button>
+    <button onclick=demare()>Les train démarre</button>
+    <button onclick=roule()>Le train accélère</button>
+    <button onclick=accelere()>Les train roule</button>
+    <button onclick=vitesse_max()>Le train à atteint sa vitesse max</button>
+    <button onclick=freine()>Le train freine</button>
+    <button onclick=ralenti()>Le train ralentit</button>
+    <button onclick=ouvre_ses_portes()>Les portes s'ouvrent</button>
+    <button onclick=descente_passagers()>Les passagers descendent</button> -->
+
+</body>
+
+
+<script type="text/javascript">
+    class train {
+        constructor(vitesse, porte, passagers, on) {
+            this.vitesse = vitesse;
+            this.porte = porte;
+            this.passagers = passagers;
+            this.on = on;
+        }
+
+        passager_montent() {
+            console.log('les passagers montent');
+            this.passagers = true;
+            console.log(this.passagers);
+        }
+
+        femre_ses_portes() {
+            console.log('le train ferme ses portes');
+            this.porte = false;
+            console.log(this.porte)
+        }
+
+        demare() {
+            console.log('le train démarre');
+            this.on = true;
+            console.log(this.on)
+        }
+
+        roule() {
+            console.log('le train roule');
+        }
+
+        accelere() {
+
+            while (this.vitesse < 150) {
+                this.vitesse += 10;
+                console.log(this.vitesse)
+            }
+        }
+
+        vitesse_max() {
+            console.log('le train est à sa vitesse max');
+            vitesse = 150
+        }
+
+        freine() {
+            console.log('le train freine');
+            if (this.vitesse != 0) {
+                this.vitesse = 0;
+                console.log(this.vitesse)
+            }
+        }
+
+        // vache()
+        // {console.log('la vache intervient');
+        //     this.cow = vache()}
+
+        ralenti() {
+            console.log('le train ralentit');
+            while (this.vitesse > 0) {
+                this.vitesse -= 10
+            };
+            console.log(this.vitesse)
+        }
+
+        descente_passagers() {
+            console.log('les passagers déscedent');
+            this.passagers = false;
+            console.log(this.passagers)
+        }
+
+        ouvre_ses_portes() {
+            console.log('le train ouvre ses portes');
+            this.porte = true
+        }
+    }
+
+    var train1 = new train(0, true, true, true); //instanciation
+
+
+    function scenario_vache_on_rails() {
+        train1.passager_montent();
+        train1.femre_ses_portes();
+        train1.demare();
+        train1.accelere();
+        train1.roule();
+        train1.vitesse_max();
+        alert('VACHE !!!!');
+        train1.freine();
+        train1.accelere();
+        train1.vitesse_max();
+        train1.ralenti();
+        train1.descente_passagers();
+        train1.ouvre_ses_portes();
+    }
+</script>
+
+
+</html>

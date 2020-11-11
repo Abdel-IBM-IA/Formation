@@ -1,0 +1,32 @@
+INSTALLATION VM Linux Ubuntu
+https://www.numetopia.fr/comment-installer-ubuntu-dans-virtualbox/#installation_additions_invite
+
+
+
+Il faut rester dans le répertoire system32 en admin
+
+1) On récupère l'ID d'activation de Windows :
+
+C:\WINDOWS\system32>cscript slmgr.vbs /dlv > C:\ma_licence.txt
+
+2) Dans le fichier ma_licence.txt, récupère l'ID d'activation. Exemple :
+
+73111121-5638-40f6-bc11-XXXXXXXXX
+
+3) Supprime la licence des deux VM :
+
+C:\WINDOWS\system32>slmgr.vbs /upk 73111121-5638-40f6-bc11-XXXXXXXXX
+on la supprime aussi de la base de registre :
+
+C:\WINDOWS\system32>slmgr.vbs /cpky
+
+4) Éteindre l'ancienne VM
+
+5) On redémarre la VM que tu veux activer, avec une connexion Internet activée.
+
+6) On réactive la licence sur la VM qui est connectée à Internet :
+
+C:\WINDOWS\system32>slui 3
+
+
+3277c

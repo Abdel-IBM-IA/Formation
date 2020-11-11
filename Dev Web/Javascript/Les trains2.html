@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <!--Soit un train à l’arrêt en gare X
+    il prend des passagers
+    ferme ses portes.
+    Démarre
+    roule en accélérant de 10km/h toutes les fois que le conducteur accélère 
+    Il atteint sa vitesse max de 150km/h, le conducteur continue d’accélèrer mais le train ne dépasse pas 150km/h.
+    Sur le trajet soudain une vache, il freine et la vitesse tombe à zéro km/h.
+    La vache s’en va et le train repart, jusqu’à atteindre 150 km/h.
+    Il arrive à destination, il ralenti 150 – 130 – 100 – 80 – 60 -30 -5 -0 km/h
+    Les passagers descendent.
+
+    Vous devez créer une classe qui permette toutes ces actions et informe par un console.log de l’état du train (vitesse et en arret ou non, portes)
+
+    2) créez un bouton A qui au clic crée deux trains (on ne doit pas pouvoir créer plus de 2 trains) . Puis 1 deuxième bouton B et deux boutons radios C et D.
+    Si le premier bouton radio C est sélectionné la question «donner le nom des trains, svp » sera posée si on clic sur le bouton B Si le premier bouton radio D est sélectionné la question «Démarrer le train, svp » sera posée si on clic sur le bouton B et les trains seront lancés avec accélération 10-20-40-70-90-150 puis décélération 150-120-80-60-20-0.
+    Les valeurs d’accélération ou de décélération doivent être passée en paramètres (pilotage automatique)
+    (édité)
+    
+    ici il faudra chercher comment recuperer l'état d'un bouton ....
+    via internet   -->
+
+    <h1>VOYAGE EN TRAIN</h1>
+    <div>
+        <button onclick="demarrerTrajet()">DEMARRER</button>
+    </div>
+    <br>
+    <br>
+    <div id="result1"></div>
+</body>
+<script type="text/javascript">
+    class Train {
+
+        nom = "le train"
+        contact = 'Off'
+        vitesse = 0;
+        etatPortes = "Closed";
+        result = '';
+        delta = 10;
+        deltaOK = false;
+
+        Train(nomDuTrain) {
+            this.nom = nomDuTrain;
+        }
+
+
+        afficherInfo(action) {
+            this.result += action + "<br>";
+        }
+
+        ouvrirPortes() {
+            this.etatPortes = "Ouvertes";
+            console.log("Les portes s'ouvrent !");
+            this.afficherInfo("Les portes s'ouvrent !");
+        }
+
+        monteePassagers() {
+            console.log('Les passagers prennent places !');
+            this.afficherInfo("Les passagers prennent places !");
+        }
+
+        fermerPortes() {
+            this.etatPortes = "Closed";
+            console.log("Les portes se ferment !");
+            this.afficherInfo("Les portes se ferment !");
+        }
+
+        demarre() {
+            this.contact = 'On';
+            this.etatPortes = "Closed";
+            console.log(this.nom + ' demarre');
+            console.log('Contact : On');
+            console.log('Portes : fermées');
+            this.afficherInfo(this.nom + " demarre, Contact OK !");
+        }
+
+        accelere() {
+            this.delta = Number(window.prompt("Merci de saisir une accélération entre 5 à 30 :"));
+            if (this.delta == 0) {
+                this.vitesse = 150; // Initialise delta pour éviter la valeur 0 du prompt = annuler
+                this.deltaOK = true;
+                return;
+            }
+            while (!this.deltaOK | this.delta != 0) {
+
+                if (isNaN(this.delta)) {
+                    this.delta = Number(window.prompt('Saisir une valeur NUMERIQUE comprise entre 5 et 30 !'));
+                } else if (0 < this.delta < 5 | this.delta > 30) {
+                    this.delta = Number(window.prompt('Saisir une valeur comprise entre 5 et 30 IMPERATIVEMENT!'));
+                } else {
+                    this.deltaOK = true;
+                }
+
+                if (this.delta == 0) {
+                    this.vitesse = 150; // Initialise delta pour éviter la valeur 0 du prompt = annuler
+                    this.deltaOK = true;
+                    return;
+                }
+            }
+
+            while (0 < this.vitesse < 150) {
+                this.vitesse += this.delta;
+                if (this.vitesse > 150) { // Recalibre la vitesse si dépasse 150
+                    this.vitesse = 150;
+                }
+                window.alert(this.nom + " accélère ! Sa vitesse : " + this.vitesse);
+                console.log(this.nom + " accelere");
+                console.log('Vitese : ' + this.vitesse);
+                this.afficherInfo(this.nom + "accélère, vitesse : " + this.vitesse);
+            }
+        }
+
+        roule() {
+            for (let i = 1; i < 5; i++) {
+                console.log(this.nom + ' roule ... ttttttt');
+                console.log('Vitese : ' + this.vitesse);
+                this.afficherInfo(this.nom + " roule ... ttttttt, vitesse : " + this.vitesse);
+            }
+            window.alert(this.nom + " roule, il a atteint sa vitesse de croisière ! " + this.vitesse + " km/h");
+        }
+
+        ralenti() {
+            window.alert(this.nom + " arrive à destination, il s'apprète à ralentir !");
+            while (this.vitesse > 0) {
+                switch (this.vitesse) {
+                    case 150:
+                        this.vitesse = 130;
+                        break;
+
+                    case 130:
+                        this.vitesse = 100;
+                        break;
+
+                    case 100:
+                        this.vitesse = 80;
+                        break;
+
+                    case 80:
+                        this.vitesse = 60;
+                        break;
+
+                    case 60:
+                        this.vitesse = 30;
+                        break;
+
+                    case 30:
+                        this.vitesse = 5;
+                        break;
+
+                    default:
+                        this.vitesse = 0;
+                        break;
+                }
+                console.log(this.nom + ' freine');
+                console.log('Vitese : ' + this.vitesse);
+                this.afficherInfo(this.nom + " freine, sa vitesse est : " + this.vitesse + " km/h");
+            }
+            window.alert(this.nom + " est arrivé à destination, il est à l'arrêt !");
+        }
+
+        descentePassagers() {
+            console.log('Les passagers descendent !');
+            this.afficherInfo("Les passagers descendent !");
+            window.alert(this.nom + " est à l'arrêt, les voyageurs descendent du train ");
+        }
+
+        piler() {
+            window.alert("Une vache est sur la voie, " + this.nom + " pile");
+            while (this.vitesse > 0) {
+                this.vitesse -= 30;
+                console.log('Une vache sur la voie, ' + this.nom + ' pile');
+                console.log('Vitese : ' + this.vitesse);
+                this.afficherInfo("Une vache sur la voie " + this.nom + " pile, vitesse : " + this.vitesse + " km/h");
+            }
+            window.alert(this.nom + " est à l'arrêt, la vache s'en va " + this.nom + " peut repartir");
+        }
+        ExecuterVoyage() {
+            this.demarre();
+            this.ouvrirPortes();
+            this.monteePassagers();
+            this.fermerPortes();
+            this.accelere();
+            this.roule();
+            this.piler();
+            this.accelere();
+            this.roule();
+            this.ralenti()
+            this.ouvrirPortes();
+            this.descentePassagers();
+            // document.getElementById("result1").innerHTML = unTrain.result;
+
+        }
+    }
+
+    function demarrerTrajet() {
+        var unTrain = new Train();
+        unTrain.ExecuterVoyage();
+    }
+</script>
+
+</html>

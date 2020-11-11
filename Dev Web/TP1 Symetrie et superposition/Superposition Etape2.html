@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            div { 
+                border: 3px solid;
+                width: 200px;
+                height: 200px;    
+                background-color: rgb(255, 255, 255);
+            }
+
+            #bloc1{
+                top: 10px;
+                left: 10px;
+                background-color: brown;
+                position: relative;
+                z-index: 3; 
+            }
+
+            #bloc2{
+                top: -160px;
+                left: 50px;
+                position: relative;
+                z-index: 2; 
+            }
+
+            #bloc3{
+                top: -320px;
+                left: 90px;
+                background-color: darkgreen;
+                position: relative;
+                z-index: 1; 
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>SUPERPOSITION 2ieme étape</h1>
+        
+        <div id="bloc1"></div>
+        <div id="bloc2"></div>
+        <div id="bloc3"></div>
+    </body>
+</html>

@@ -1,0 +1,129 @@
+GLOSSAIRE BALISES WEB
+
+ARTICLE
+Portion de contenu indépendante, se suffisant à elle-même en termes de compréhension (pouvant être syndiquée dans un flus RSS). Exemples : articles de presse, fiche cinéma, réponse de forum, commentaire d'article ( qui est un <article> imbriqué dans <article>)
+aside
+
+BASE
+Adresse de base.
+L'attribut href indique une URL absolue de base, à partir de laquelle calculer les liens du document, et target un contexte de navigation 
+(nom, blank, self, parent ou top)
+
+BODY
+Corps du document.
+Contient toutes les balises HTML de contenu : texts, blocs, images, titres, médias, formulaires, etc.
+
+BR
+Break ou saut de ligne.
+Force un saut de ligne : l'affichage se poursuit en début de ligne suivante.
+BONNE PRATIQUE : 
+Afin d'éviter l'usage abusif de <br> pour créer de l'espacement vertical, il est préférable d'utiliser les propriétés CSS (margin et padding) pour introduire des marges sur les conteneurs et les paragraphes.
+
+FOOTER
+Pied.
+S'applique au document entier, mais aussi à toute section au sens large, <article> y compris, s'il n'est pas descendant d'un autre élément de section.
+
+H1
+Hiérarchie de titres.
+<h1> jusqu'à <h6>.
+Six niveaux de titres pour hiérarchiser le contenu. Bien les employer selon leur niveau, et non selon leur aspect ou taille par défaut. 
+Il revient au CSS d'en définir le rendu.
+<h1>Les aliments</h1>
+    <h2>Les légumes</h2>
+        <h3>La patate</h3>
+        <h3>La tomate</h3>
+    <h2>Les fruits</h2>
+        <h3>Le kiwi</h3>
+        <h3>La banane</h3>
+        <h3>La mangue</h3>
+
+HEAD
+Entête du document.
+Contient les méta-informations interprétées par le navigateur sans apparaître dans le corps du document :
+    <title>
+    <meta>
+    <style>
+    <script>
+
+HEADER
+En-tête.
+S''applique au document entier, mais aussi à toute section au sens large, <article> y compris.
+
+HR
+Séparation ou rupture thématique.
+Élément vide" qui marque une séparation dans le contenu, typiquement au niveau des paragraphes, usuellement représentée par une barre horizontale.
+
+HTML
+La racine.
+Contient un élément <head> suivi d'un élément <body>. Précisez la langue du document avec l'attribut lang.
+Termes associés: Manifest
+
+MAIN
+Contenu principal.
+Structure dans un document la section majeure pouvant en regrouper d'autres. Il ne peut y avoir qu'un seul par document, et il ne doit pas être descendant de <article>, <aside>, <footer>, <header> ou <nav>.
+
+META
+Méta-informations.
+Apporte des informations ( mot-clés, description, auteur) dans l'entête <head> que les agents utilisateurs vont pouvoir exploiter.
+<meta charset="utf-8">
+<meta name="description" value="Description du document">
+<meta name="keywords" value="mots, clés, énumérés">
+<meta http-equiv="refresh" content="10; URL=hopla.html">
+
+Valeurs possibles de name :
+    author
+    genrator
+    application-name
+    description
+    keywords
+
+NAV
+Navigation.
+Regroupe la sélection des principaux liens pour naviguer à travers le site, l'application web ou le document.
+
+NOSCRIPT
+Texte alternatif aux scripts.
+Lorsque les scripts sont désactivés sur le navigateur. 
+Ignoré par les navigateurs dont les scripts sont activés.
+<noscript>Votre navigateur ne supporte pas les scripts ...</noscript>
+
+PARAGRAPHE.
+Contient un paragraphe de texte, éventuellement accompagné d'autres balises en ligne plus sémantiques (images, vidéos, audio), mais pas d'autre élément de type bloc (y compris <p> lui-même).
+
+SCRIPT
+Contient un script (javascript) ou fait référence à un fichier externe avec l'attribut src.
+<script src="script.js"></script>
+Attributs :
+    type
+    src
+    defer
+    async
+    charset
+L'attribut async indique une exécution asynchrone, et defer une exécution différée à la fin du document.
+
+SECTION
+Element générique pour une section de contenu ou d'application web, utilisé à défaut d'un autre élément de section plus sémantique tel que <article>, <nav>, <header>, <footer>, <aside>.
+A ne pas confondre avec <div> qui n'a aucune valeur sémantique. 
+<section> doit contenir un titre( éléments <h1> à <h6>) qui la définit.
+
+STYLE
+Styles embarqués dans le document.
+Déclarations CSS à appliquer au document HTML.
+Attributs :
+    type
+    media
+    scoped
+
+TITLE
+Titre du document.
+afficher par le navigateur et indexé par les moteurs de recherche. Contenu par <head>.
+
+WBR
+Word break
+Indication d'opportunité de césure de mot.
+Indique au navigateur qu'il est plus opportun de scinder un mot à l'emplacement de cet élément, s'il y a besoin, notament pour éviter une césure automatique pouvant être mal interprétée. 
+Exemple : 
+<p>Super<wbr>califragilistic<wbr>expialidocius</p>
+
+
+

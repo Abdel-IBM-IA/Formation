@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Html</title>
+    <meta charset="UTF-8" />
+    <style>
+      div[name="un"] {
+        background-color: red;
+      }
+      div[class="titre"] {
+        background-color: yellow;
+      }
+      div[name^="de"] {
+        background-color: green;
+      }
+      div[title$="x"] {
+        background-color: pink;
+      }
+      div[title*="roi"] {
+        background-color: blue;
+      }
+      div[name="combi"][class="fusion"] {
+        background-color: rgb(137, 136, 138);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="titre">
+      <p>Type de balise : div class="titre"</p>
+      <p>
+        Sélecteur d'attribut appliqué : div[class="titre"] { background-color:
+        yellow;}
+      </p>
+    </div>
+
+    <div name="un">
+      <p>Type de balise : div name="un"</p>
+      <p>
+        Sélecteur d'attribut appliqué : div[name="un"] { background-color: red;}
+      </p>
+    </div>
+
+    <div title="deux">
+      <p>Type de balise : div title="deux"</p>
+      <p>
+        Sélecteur d'attribut appliqué : div[name^="de"] { background-color:
+        green;}
+      </p>
+    </div>
+
+    <div title="trois">
+      <p>Type de balise : div title="trois"</p>
+      <p>
+        Sélecteur d'attribut appliqué : div[title*="roi"] {background-color:
+        blue;}
+      </p>
+    </div>
+
+    <div name="dernier">
+      <p>Type de balise : div name="dernier"</p>
+      <p>
+        Sélecteur d'attribut appliqué : div[title*="roi"] {background-color:
+        blue;}
+      </p>
+    </div>
+
+    <div name="combi">
+      <p>Type de balise : div name="combi"</p>
+      <p>
+        Sélecteur d'attribut appliqué : div[name="combi"][class="fusion"]{
+        background-color:rgb(137, 136, 138)}
+      </p>
+    </div>
+
+    <div class="fusion">
+      <p>Type de balise : div class="titre"</p>
+      <p>
+        Sélecteur d'attribut appliqué : div[name="combi"][class="fusion"]{
+        background-color:rgb(137, 136, 138)}
+      </p>
+    </div>
+  </body>
+</html>

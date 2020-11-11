@@ -1,0 +1,24 @@
+
+  <!DOCTYPE html>
+  <html lang="fr">
+  <head>
+  <title>Html</title>
+  <meta charset="UTF-8">
+  <script type="text/javascript">
+  if (navigator.geolocation)
+    {navigator.geolocation.getCurrentPosition(function(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  document.getElementById("latitude").innerHTML = latitude;
+  document.getElementById("longitude").innerHTML = longitude;
+  });
+  }
+  else { alert("Votre navigateur ne supporte pas la géolocalisation"); }
+  </script>
+  </head>
+  <body>
+  <h1>Html géolocalisation</h1>
+  Latitude : <span id="latitude">Loading...</span><br>
+  Longitude : <span id="longitude">Loading...</span>
+  </body>
+  </html>

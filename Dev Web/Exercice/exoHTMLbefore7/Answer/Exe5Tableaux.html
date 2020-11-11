@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Exercice 5 cours HTML les tableaux</title>
+        <meta charset="UTF-8" />
+        <style type="text/css">
+            /* Appliqué à tous les tableaux */
+            table {
+                border: 1px solid black;
+            }
+
+            /* Appliqué tableau 1 */
+            #tab1 {
+                width: 500px;
+            }
+            #tab1 td { 
+                border: 1px solid black; 
+                text-align: center;
+            }
+
+            /* Appliqué tableau 2 */    
+            #tab2 td {
+                text-align: right;
+                border: 1px solid black;
+                border-collapse: collapse;
+                /* Ombre intérieure de cellules sur arêtes gauche et supérieure  */
+                box-shadow: inset 1px 0.5px rgb(10, 10, 10);
+            }
+
+            /* Appliqué tableau 3 */
+            #tab3 td { text-align: right; }
+            #tab3, thead, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            /* Appliqué tableau 4 */
+            #tab4 td { text-align: center; }
+            #tab4 thead { font-weight: bold; }
+            #tab4, thead, td {
+                border: 2px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table id="tab1">
+            <thead>
+                <tr>
+                    <td colspan="4">1</td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="4">8</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td rowspan="2">2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td rowspan="2">5</td>
+                </tr>
+                <tr>
+                    <td><i>6</i></td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><br><br>
+
+        <table id="tab2">
+            <thead>
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>deux</td>
+                    <td>3</td>
+                    <td>quatre</td>
+                </tr>
+                <tr>
+                    <td>cinq</td>
+                    <td>6</td>
+                    <td>sept</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>dix</td>
+                    <td>11</td>
+                    <td>douze</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><br><br>
+
+        <table id="tab3">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td colspan="4">Matin</td>
+                    <td colspan="4">Aprés midi</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jours /<br> heures</td>
+                    <td>08-09</td>
+                    <td>09-10</td>
+                    <td>10-11</td>
+                    <td>11-12</td>
+                    <td>14-15</td>
+                    <td>15-16</td>
+                    <td>16-17</td>
+                    <td>17-18</td>
+                </tr>
+                <tr>
+                    <td>Lundi</td>
+                    <td colspan="4">Analyse des données</td>
+                    <td colspan="2">Théorie des<br> graphes</td>
+                    <td>***</td>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>Mardi</td>
+                    <td>***</td>
+                    <td>***</td>
+                    <td colspan="2">Théorie des<br> graphes</td>
+                    <td colspan="2">TP Informatique</td>
+                    <td>***</td>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>Mercredi</td>
+                    <td colspan="2">Programmation<br> Web</td>
+                    <td>***</td>
+                    <td>***</td>
+                    <td colspan="2">TP<br> programmation<br> Web</td>
+                    <td colspan="2">TD Théorie<br> des graphes</td>
+                </tr>
+                <tr>
+                    <td>Jeudi</td>
+                    <td>***</td>
+                    <td>***</td>
+                    <td colspan="2">TP<br> programmation<br> Web</td>
+                    <td colspan="4">TD des séries</td>
+                </tr>
+                <tr>
+                    <td>Vendredi</td>
+                    <td colspan="2">Structure des<br> données</td>
+                    <td colspan="2">TD d'analyse des<br> données</td>
+                    <td>***</td>
+                    <td>***</td>
+                    <td>***</td>
+                    <td>***</td>
+                </tr>
+                <tr>
+                    <td>Samedi</td>
+                    <td colspan="2">Cours LC</td>
+                    <td colspan="2">TD de LC</td>
+                    <td>***</td>
+                    <td>***</td>
+                    <td>***</td>
+                    <td>***</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><br><br>
+
+        <table id="tab4">
+            <caption>Planning des taches par équipe</caption>
+            <thead>
+                <tr>
+                    <td rowspan="2">Equipes</td>
+                    <td colspan="10">Janvier</td>
+                    <td rowspan="2"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Lundi</td>
+                    <td colspan="2">Mardi</td>
+                    <td colspan="2">Mercredi</td>
+                    <td colspan="2">Jeudi</td>
+                    <td colspan="2">Vendredi</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Equipe1</td>
+                    <td colspan="6">Tach1</td>
+                    <td colspan="4">Tache2</td>
+                    <td rowspan="2">Semaine<br>1</td>
+                </tr>
+                <tr>
+                    <td>Equipe2</td>
+                    <td colspan="5">Tache1</td>
+                    <td colspan="5">Tache2</td>
+                </tr>
+                <tr>
+                    <td>Equipe1</td>
+                    <td colspan="2">Tach3</td>
+                    <td colspan="6">Tache4</td>
+                    <td colspan="2">Tache5</td>
+                    <td rowspan="2">Semaine<br>2</td>
+                </tr>
+                <tr>
+                    <td>Equipe2</td>
+                    <td colspan="4">Tache3</td>
+                    <td colspan="6">Tache4</td>
+                </tr>
+                <tr>
+                    <td>Equipe1</td>
+                    <td colspan="5">Tache5</td>
+                    <td colspan="5">Tache6</td>
+                    <td rowspan="2">Semaine<br>3</td>
+                </tr>
+                <tr>
+                    <td>Equipe2</td>
+                    <td>Tache5</td>
+                    <td colspan="8">Tache6</td>
+                </tr>
+                <tr>
+                    <td>Equipe1</td>
+                    <td colspan="6">Tache7</td>
+                    <td colspan="4">Tache8</td>
+                    <td rowspan="2">Semaine<br>4</td>
+                </tr>
+                <tr>
+                    <td>Equipe2</td>
+                    <td colspan="5">Tache7</td>
+                    <td colspan="5">Tache8</td>
+                </tr>
+            </tbody>
+        </table>     
+    </body>
+</html>

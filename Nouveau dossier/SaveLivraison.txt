@@ -1,0 +1,3 @@
+nom_viticulteur;num_parcelle;type_cepage;poids_cepage;date_livraison;heure_livraison
+Dupont;169607143451;Chenin;100;23.10.20;21.50.00
+Bernard;167502102531;Grenache;452;22.10.20;22.39.13

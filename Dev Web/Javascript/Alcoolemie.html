@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+        function calculAlcoolemie() {
+            var tauxAlcoolemie = 0;
+            var poidsOK = false;
+            var nbVerreOk = false;
+
+            while (!poidsOK) {
+
+                PoidsEnKg = prompt("Quel est votre poids en Kg ?");
+
+                if (!isNaN(PoidsEnKg)) {
+                    poidsOK = true
+                } else {
+                    alert('Merci de saisir un nombre pour votre poids !');
+                }
+            }
+
+            while (!nbVerreOk) {
+
+                nbVerre = prompt("Quel est le nombre de verre(s) consommé(s) ?");
+
+                if (!isNaN(nbVerre)) {
+                    nbVerreOk = true
+                } else {
+                    alert('Merci de saisir un nombre de verre(s) consommé(s) !');
+                }
+            }
+
+            try {
+                tauxAlcoolemie = (nbVerre * 10) / PoidsEnKg * 0.7;
+            } catch (error) {
+                console.log(error);
+            } finally {
+                console.log(nbVerre + ' ' + PoidsEnKg);
+            }
+
+            alert("Votre taux d'alcoolémie est : \r" + tauxAlcoolemie);
+
+            document.getElementById("result").innerHTML = "Votre taux d'alcoolémie est estimé à : " + tauxAlcoolemie;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Calculer votre taux d'alcoolémie</h1>
+    <div>
+        <button onclick="calculAlcoolemie()">Calculer votre taux</button>
+    </div>
+    <br>
+    <br>
+    <div id="result"></div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<title>Exercice 2 cours HTML</title>
+	<meta charset="UTF-8">
+	<style>
+	</style>
+</head>
+
+<body>
+	<h1><a title="Extensible Markup Language">XML</a> Schema</h1>
+
+	<h2>Définition</h2>
+	<p>
+		<b><a title="Extensible Markup Language">XML</a> Schema</b> publié comme recommandé par W3C
+	</p>
+
+	<h2>Modèle de XML Schema</h2>
+	<p>
+		La recommandation spécifie la validation des documents XML
+	</p>
+
+	<h2>Exemple</h2>
+	<p>
+		<code>
+			<pre>
+			<!--le caractere '<' est codé sous la forme '&lt' pour ne pas que le code soit interprété par le navigateur-->
+			&lt;?xml version="1.0"?
+			&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			&lt;xs:element name="note">
+				&lt;xs:complexType>
+					&lt;xs:sequence>
+						&lt;xs:element name="to" type="xs:string"/>
+						&lt;xs:element name="from" type="xs:string"/>
+						&lt;xs:element name="heading" type="xs:string"/>
+						&lt;xs:element name="body" type="xs:string"/>
+						&lt;/xs:sequence>
+					&lt;/xs:complexType>
+				&lt;/xs:element>
+			&lt;/xs:schema> 
+			</pre>
+		</code>
+	</p>
+
+	<hr>
+	<footer>
+		<p><u>citation</u>: "Les données sont une chose précieuse et dureront plus longtemps que le s systèmes eux-mêmes." (Time berner lee)</p>
+	  </footer> 
+</body>
+
+</html>

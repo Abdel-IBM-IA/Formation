@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+
+</head>
+
+<body>
+    <h2>EXERCICE 1</h2>
+    <div>
+        <button onclick="sayHelloWorld()">Say Hello world !</button>
+    </div>
+    <br>
+    <div id="result1"></div>
+    <div>
+        <button onclick="confirmYourName()">Saississez votre nom !</button>
+    </div>
+    <br>
+    <div id="result1bis"></div>
+
+    <h2>EXERCICE 2</h2>
+    <div>
+        <button onclick="sayHelloWorld()">Say Hello world !</button>
+    </div>
+    <br>
+    <div id="result2"></div>
+
+
+</body>
+<script type="text/javascript">
+    function sayHelloWorld() {
+        alert('HELLO WORLD !!!');
+        document.getElementById("result1").innerHTML = 'HELLO WORLD !!!';
+    }
+
+    function confirmYourName() {
+
+        var yourname = prompt("Veuillez saisir votre nom");
+        var answer = window.confirm("Est-ce votre nom : " + yourname);
+        if (answer) {
+            alert('Hello ' + yourname);
+            document.getElementById("result1bis").innerHTML = 'HELLO ' + yourname;
+        } else {
+            alert("Transaction annulée !");
+        }
+    }
+
+    function sayCategorie() {
+
+        var ageOk = false;
+        var age;
+        var categorie = '';
+
+        while (!ageOk) {
+
+            age = prompt("Veuillez saisir votre age ");
+
+            if (!isNaN(PoidsEnKg)) {
+                ageOk = true
+            } else if (age < 6) {
+                categorie = "« Trop jeune ! »";
+            } else if (age > 17) {
+
+            } else {
+                alert('Merci de saisir un nombre pour votre age !');
+            }
+
+            if (6 <= age <= 7) {
+                categorie = "« Poussin »";
+            } else if (8 <= age <= 9) {
+                categorie = "« Pupille »";
+            } else if (10 <= age <= 11 {
+                    categorie = "« Minime »";
+                } else if (10 <= age <= 11) {
+                    categorie = "« Cadet »";
+                } else if (age > 17) {
+                    categorie = "« Trop agé ! »";
+                }
+
+                alert("Votre catégorie : " + categorie); document.getElementById("result2").innerHTML = categorie;
+
+            }
+
+
+            function calculAlcoolemie() {
+                var tauxAlcoolemie = 0;
+                var poidsOK = false;
+                var nbVerreOk = false;
+
+                while (!poidsOK) {
+
+                    PoidsEnKg = prompt("Quel est votre poids en Kg ?");
+
+                    if (!isNaN(PoidsEnKg)) {
+                        poidsOK = true
+                    } else {
+                        alert('Merci de saisir un nombre pour votre poids !');
+                    }
+                }
+
+                while (!nbVerreOk) {
+
+                    nbVerre = prompt("Quel est le nombre de verre(s) consommé(s) ?");
+
+                    if (!isNaN(nbVerre)) {
+                        nbVerreOk = true
+                    } else {
+                        alert('Merci de saisir un nombre de verre(s) consommé(s) !');
+                    }
+                }
+
+                try {
+                    tauxAlcoolemie = (nbVerre * 10) / PoidsEnKg * 0.7;
+                } catch (error) {
+                    console.log(error);
+                } finally {
+                    console.log(nbVerre + ' ' + PoidsEnKg);
+                }
+
+                alert("Votre taux d'alcoolémie est : \r" + tauxAlcoolemie);
+
+                document.getElementById("result").innerHTML = "Votre taux d'alcoolémie est estimé à : " + tauxAlcoolemie;
+            }
+</script>
+
+</html>

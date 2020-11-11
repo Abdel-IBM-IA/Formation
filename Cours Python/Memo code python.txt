@@ -1,0 +1,23 @@
+
+
+*************
+BOUCLE SAISIE
+
+continu="y"
+list_film={}
+while continu=="y":
+    film =str(input("Nom du film : "))
+    annee=int(input("Annee sortie : "))
+    list_film[film]=annee
+    continu=str(input("Voulez-vous continuez (y ou n) ?"))
+    
+if (80 in list_film.values()):
+    print("Au moins un film est sorti en 1980")
+    
+else: 
+    print("Il n'y a pas de film sorti en 1980")
+    
+list_film
+
+
+Iaschool34*

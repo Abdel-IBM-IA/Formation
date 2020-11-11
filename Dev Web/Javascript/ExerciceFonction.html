@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        table {
+            border: 2px;
+        }
+    </style>
+    <script type="text/javascript" language="javascript">
+        var listeParticipants = [];
+
+        function ClearForm() {
+            document.myForm.reset();
+        }
+
+        function printTable() {
+
+            var result = "<table><tr><th>Nom participant</th><th>Prenom participant</th></tr>";
+            if (listeParticipants != null) {
+                listeParticipants.forEach(element => result += "<tr><td>" + element.nomParticipant + "</td><td>" + element.prenomParticipant + "</td></tr>");
+            } else {
+                result += "<tr><th></th><th></th></tr>";
+            }
+
+            result += "</table>";
+            document.getElementById("result").innerHTML = result;
+        }
+
+        function ajoutParticipant() {
+            /**
+             * Description : 
+             * Réalise la sélection aléatoire d'un index et renvoie la valeur correspondante
+             * 
+             * @return {Object} {str Nom, str Prenom }.
+             **/
+
+            var nomParticipant = document.getElementById("nomUtil").value;
+            var prenomParticipant = document.getElementById("prenomUtil").value;
+
+            if (nomParticipant == '') {
+                alert("Merci de saisir une valeur pour le nom !");
+            }
+            if (prenomParticipant == '') {
+                alert("Merci de saisir une valeur pour le prenom !");
+            }
+
+            if (nomParticipant != '' && prenomParticipant != '') {
+
+                // Détermine si le participant exist déja dans la liste
+                var exist = listeParticipants.includes(nomParticipant, prenomParticipant);
+                console.log(exist)
+                    // Teste si le participant existe déja dans la liste
+                if (exist) {
+                    console.log(exist)
+                    alert("Participant déjà inscrit !");
+                } else {
+                    // Le participant n'existe pas dans la liste, il peut-être ajouté
+                    listeParticipants.push({
+                        nomParticipant,
+                        prenomParticipant
+                    });
+                }
+                console.log(listeParticipants);
+            }
+            printTable()
+        }
+
+        function tirerAuSort() {
+            /**
+             * Description : 
+             * Réalise la sélection aléatoire d'un index et
+             * founit la valeur associée.
+             *
+             * @return {Object} {str Nom, str Prenom }.
+             */
+            var indiceGagnant;
+
+            if (listeParticipants.length == 0) {
+
+                alert('Pas de participant');
+
+            } else {
+                let nbParticipants = listeParticipants.length
+
+                indiceGagnant = Math.floor(Math.random() * nbParticipants);
+
+                let gagnant = listeParticipants[indiceGagnant];
+                let result = "<h2>Le gagnant est : " + gagnant.nomParticipant + ' ' + gagnant.prenomParticipant + "</h2>"
+
+                document.getElementById("gagnant").innerHTML = result;
+
+                return gagnant;
+            }
+        }
+    </script>
+</head>
+
+<body onload="ClearForm()">
+    <h1>Liste participants</h1>
+    <form name="myForm" method="post" action="#"></form>
+    <div>
+        <label for="nomUtil">Saisissez un nom :</label> <input type="text" id="nomUtil" name="nomUtil"><br><br>
+        <label for="prenomUtil">Saisissez un prenom :</label> <input type="text" id="prenomUtil" name="prenomUtil"><br><br>
+        <button onclick="ajoutParticipant()">Ajouter participant</button>
+    </div>
+    <br><br>
+    <div id="result"></div>
+    <div>
+        <button onclick="tirerAuSort()">Tirer au sort</button>
+    </div>
+    <br><br>
+    <div id="gagnant"></div>
+    </form>
+</body>
+
+</html>

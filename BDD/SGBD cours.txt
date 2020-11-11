@@ -1,0 +1,107 @@
+1. SGBD
+
+Un SGBD est destiné à gérer un gros volume d'informations. Il doit permettre d’accéder rapidement et facilement aux données de la base, afin de répondre aux besoins multiples des utilisateurs.
+
+Un SGBD doit respecter :
+    Fidélité : la base de données doit donner une image fidèle de la réalité qu'elle modélise.
+    
+	Unicité / Redondances contrôlées : chaque information donnée doit être située physiquement à un seul endroit.
+    
+	Indépendances : Indépendance physique : il s'agit de pouvoir modifier l'organisation physique des fichiers,
+    rajouter ou supprimer des méthodes d'accès sans avoir à modifier le schéma conceptuel.
+
+    Indépendance logique : il est possible de modifier le niveau conceptuel sans remettre en cause les schémas externes ou les programmes d'application. L'ajout ou le retrait de nouveaux objets ne modifient pas les éléments qui n'y font pas explicitement référence.
+
+    Concurrence / Partage des données : gestion des accès simultanés par plusieurs utilisateur ou/et programmes ( Transaction )
+
+    Performance et efficacité : temps de réaction raisonnable.
+
+    Confidentialité et sécurité : gestion des droits d'accès.
+
+    Intégrité et cohérence : Des contraintes sur les données doivent en permanence être vérifiées. ( Contraintes d'intégrité)
+
+    Robustesse et persistante : elle doit pouvoir durer sur les années et doit être protégé des pannes.
+	 
+1. SGBD
+1.1. Type de SGBD
+Il existe différent type de SGBD
+    hiérarchique, 
+    réseau, 
+    colonne, ...
+Notre sujet ici est le modèle relationnel.
+
+2. Bases de données relationnelles
+
+La base de données des systèmes relationnels est constituée de tables ou tableaux. Chaque table de SGBDR représente soit un objet ( entité ), 
+soit une relation ( association ) entre deux ou plusieurs objets.
+Les objets peuvent être les clients, les factures, les produits.
+Les relations entre un client recevant une ou plusieurs factures ou une facture contenant plusieurs produits.
+
+2.1. Représentation tabulaire
+Chaque table est composé de Colonnes / Champs.
+
+Exemple : Les colonnes de la table CLIENT sont :
+    NOCLI ( numéro du client),
+    NOMCLI ( nom du client ),
+    PRENOMCLI ( prénom du client ),
+    TELCLI ( téléphone du client )
+    ADRCLI ( adresse du client )
+	
+    A l’intérieur d'une table, chaque colonne porte un nom unique. 
+    Il peut exister une colonne avec un nom identique dans une autre table, mais pas dans la même table.
+    Les champs sont utilisés pour décrire le type de données qui va être stocké, on appelle ça la contrainte de type.
+
+Exemple :
+    NOCLI chaîne de caractère (longueur = 6 ),
+    NOMCLI chaîne de caractère ( longueur <= 20 ),
+    PRENOMCLI chaîne de caractère ( longueur <= 20 ),
+    TELCLI nombre ( longueur = 10 ),
+    ADRCLI chaîne de caractère ( longueur <= 100 ),
+
+la précision du type et de la longueur sont des métadonnées.
+
+2.2. Longueur d'un champs
+On y définit aussi la longueur des données à enregistrer dans cette colonne. Ainsi que différentes options (à voir plus tard). 
+Si la longueur choisit est trop petite la valeur sera tronquée. Si elle est trop grande, on réserve de l'espace de stockage pour rien.
+
+2.3. Enregistrements.
+Les rangées de ce tableau s'appelle enregistrements
+
+2.4. Exemple
+Exemple : La table CLIENT contient quatre rangées où chaque rangée représente un client et contient les caractéristiques de ce client.
+
+table client
+
+Chaque rangée est identifiée par une clé unique nommée clé primaire ( primary key ou PK). Cette clé identifie de manière unique chaque rangée de la table. Elle ne doit pas être répété à l’intérieur de la table.
+
+Ainsi chaque rangée est UNIQUE
+
+3. Langage SQL (Structured Query Language)
+
+SQL est un langage de définition de donnée ( LDD )
+Il permet de créer des tables dans une bases de données relationnelle, ainsi que d'en modifier ou en
+supprimer. Il agit sur les tables et les colonnes.
+
+CREATE TABLE personne (
+         code NUMBER(6) NOT NULL, 
+         nompres CHAR (20),
+         salaire NUMBER (8),
+         sexe BOOLEAN);
+
+« créer moi une table PERSONNE qui contient les colonnes 'code', 'nompers', 'prénom', 'salaire', 'sexe' »
+
+
+
+
+Le dictionnaire de données
+Une fois que nous avons le cahier des charges, nous allons chercher les informations nécessaires pour résoudre ce problème.
+Une information doit être :
+• Elémentaire : on ne doit pas pouvoir la subdivisée
+Exemple : adresse qui doit être décomposée en adresse1, adresse 2, code postal, ville
+• Non calculable, si elle est calculable, nous ne gardons que les informations qui permettent de faire le calcul
+Exemple :
+Informations : montant HT, montant TTC, taux TVA : nous ne conservons que 2 informations sur 3
+Information : âge, il faut prendre date de naissance
+• Instanciable : on doit pouvoir donner une valeur
+Exemple : nom client : EDF
+Client : on ne peut pas donner de valeur, donc ce n’est pas une information.

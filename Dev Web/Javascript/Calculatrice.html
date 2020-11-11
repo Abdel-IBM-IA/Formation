@@ -1,0 +1,150 @@
+<html>
+
+<head>
+    <title>Calculatrice</title>
+    <meta charset="UTF-8">
+    <script language="JavaScript">
+        var saisieEncours = '';
+        var nb1 = '';
+        var nb2 = '';
+        var signeSaisie = '';
+        var resultatOperation = '';
+
+        // fonction pour réinitialiser les champs et les variables
+        function initialiser() {
+            saisieEncours = '';
+            nb1 = '';
+            nb2 = '';
+            signeSaisie = '';
+            resultatOperation = '';
+            document.Calculette.affiche.value = "";
+        }
+
+        // fonction afficher 
+        function afficher(saisie) {
+            document.Calculette.affiche.value = saisie;
+        }
+
+        //fonction ajouter 
+        function ajouter(saisie) {
+            afficher(saisieEncours += saisie);
+        }
+
+        //fonction de resultat
+        function resultat() {
+            nb2 = parseFloat(document.Calculette.affiche.value);
+            try {
+                checkOperandes();
+            } catch (e) {
+
+
+
+            } finally {
+                alert('ok')
+            }
+
+
+            resultatOperation = eval(nb1 + signeSaisie + nb2);
+            afficher(resultatOperation);
+        }
+
+        // fonction verification operation
+        function checkOperandes() {
+
+            if (nb2 == 0 && signeSaisie == '/') {
+
+                alert("Division par zéro");
+                // Recharge la page sans utiliser le cache
+                document.location.reload(true);
+            }
+        }
+
+        //fonction operation 
+        function operation(signe) {
+            if (nb1 == '' && signeSaisie == '') {
+                // La saisie est erronnée
+                afficher('');
+            }
+            if (nb1 == '') {
+                signeSaisie = signe;
+                nb1 = parseFloat(saisieEncours);
+                resultatOperation = '';
+            } else {
+                if (nb2 == '') {
+                    nb2 = parseFloat(saisieEncours);
+                } else {
+                    signeSaisie = signe;
+                    nb1 = resultatOperation;
+                    nb2 = '';
+                }
+                resultatOperation = '';
+            }
+            afficher('');
+            saisieEncours = '';
+        }
+        //fonctions effectuant des operations speciales (via des methodes intégrées à javascript)
+        function fonctionSpeciale(opespeciale) {
+            switch (opespeciale) {
+                case "sqrt":
+                    resultatOperation = Math.sqrt(eval(document.Calculette.affiche.value));
+                    break;
+                case "log":
+                    resultatOperation = Math.log(eval(document.Calculette.affiche.value));
+                    break;
+                case "pow":
+                    resultatOperation = Math.pow(eval(document.Calculette.affiche.value), 2);
+                    break;
+            }
+            afficher(resultatOperation);
+        }
+    </script>
+</head>
+
+<body onload="initialiser()">
+    <!--creation graphique de la calculette -->
+    <form name="Calculette">
+        <table border="2" cellpadding="10">
+            <tr>
+                <td><input type="text" name="affiche" size="40" maxlength="40" value="" readonly></td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td width="50"><input type="button" value=" 7 " onclick="ajouter('7');"></td>
+                            <td width="50"><input type="button" value=" 8 " onclick="ajouter('8');"></td>
+                            <td width="50"><input type="button" value=" 9 " onclick="ajouter('9');"></td>
+                            <td width="50"><input type="button" value=" + " onclick="operation('+');"></td>
+                        </tr>
+                        <tr>
+                            <td width="50"><input type="button" value=" 4 " onclick="ajouter('4');"></td>
+                            <td width="50"><input type="button" value=" 5 " onclick="ajouter('5');"></td>
+                            <td width="50"><input type="button" value=" 6 " onclick="ajouter('6');"></td>
+                            <td width="50"><input type="button" value=" - " onclick="operation('-');"></td>
+                        </tr>
+                        <tr>
+                            <td width="50"><input type="button" value=" 1 " onclick="ajouter('1');"></td>
+                            <td width="50"><input type="button" value=" 2 " onclick="ajouter('2');"></td>
+                            <td width="50"><input type="button" value=" 3 " onclick="ajouter('3');"></td>
+                            <td width="50"><input type="button" value=" * " onclick="operation('*');"></td>
+                        </tr>
+                        <tr>
+                            <td width="50"><input type="button" value=" = " onclick="resultat();"></td>
+                            <td width="50"><input type="button" value=" 0 " onclick="ajouter('0');"></td>
+                            <td width="50"><input type="button" value=" . " onclick="ajouter('.');"></td>
+                            <td width="50"><input type="button" value=" / " onclick="operation('/');"></td>
+                        </tr>
+                        <tr>
+                            <td width="50"><input type="button" value=" sqrt " onclick="fonctionSpeciale('sqrt');"></td>
+                            <td width="50"><input type="button" value=" pow " onclick="fonctionSpeciale('pow');"></td>
+                            <td width="50"><input type="button" value=" log " onclick="fonctionSpeciale('log');"></td>
+                            <td width="50"><input type="reset" value=" C " onclick="initialiser();"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

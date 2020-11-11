@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Exercice HTML exoHTMLbefore9</title>
+    <meta charset="UTF-8">
+    <style>
+    </style>
+</head>
+
+<body>
+    <h1>MISSION 1</h1>
+    <h2>Formulaire de commande</h2>
+    <div>
+        <form action="about:blank" name="commandeform" id="commandeform">
+            <fieldset>
+                <legend>Client</legend>
+                <table>
+                    <tr>
+                        <td><label for="inputnom">Nom : </label></td>
+                        <td>
+                            <input type="text" id="inputnom" name="nom" placeholder="NOM" 
+                                pattern="[A-Z]{2,}" 
+                                title="Saisie attendue en 'MAJUSCULE' 2 caractères mini" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="inputprenom">Prénom : </label></td>
+                        <td>
+                            <input type="text" id="inputprenom" name="prenom" placeholder="Prénom"
+                                pattern="[A-Z][a-z]{2,}" 
+                                title="Première lettre en 'Majuscule' uniquement 2 caractères mini" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="inputadresse">Adresse : </label></td>
+                        <td>
+                            <input type="text" id="inputadresse" name="adresse">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="inputcp">Code Postal : </label></td>
+                        <td>
+                            <input type="text" id="inputcp" name="cp"  
+                            pattern="[0-9]{5}" title="Code postal sur 5 chiffres 12345" required>
+                            <!-- patern="[0[1-9]|19]|[2[1-9]|8[1-9]]" title="les valeurs en dix mille 01 à 19, 21 à 89, 91 à 95, 971 à 976, 984 à 988, avec 2A et 2B" required>  -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="inputpays">Pays : </label></td>
+                        <td>
+                            <input type="text" id="inputpays" name="pays" value="France" readonly>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Commande</legend>
+                <table>
+                    <tr>
+                        <td><label for="inputmodel">Modèle : </label></td>
+                        <td>
+                            <input type="text" id="inputmodel" name="model" value="Road 66" autocomplete="on">
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="rangetaille">Taille :</label>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <input id="rangetaille" type="range" min="1" max="4" list="lsttailles">
+                            <datalist id="lsttailles">
+                                <option value="1" label="S">
+                                <option value="2" label="M">
+                                <option value="3" label="L">
+                                <option value="4" label="XL">
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <pre>S      M     L     XL</pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="inputquantite">Quantité : </label></td>
+                        <td>
+                            <input type="number" id="inputquantite" name="quantite" value="1" min="1" step="3"
+                                max="165">
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br>
+            <input type="submit" value="Commander">
+            <input type="reset" value="Recommencer">
+        </form>
+    </div>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
